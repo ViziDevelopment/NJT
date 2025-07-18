@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- JDBC konekcija -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property><!-- Za MySQL 8 -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/njt_hibernate1</property> <!-- baza -->
+        <property name="hibernate.connection.username">root</property> <!-- Korisničko ime za bazu -->
+        <property name="hibernate.connection.password">root</property> <!-- Lozinka za bazu -->
+
+        <!-- Postavke HQL-a -->
+        <property name="hibernate.hbm2ddl.auto">create</property> <!-- Ažurira tabelu, može biti create, create-drop -->
+        <property name="hibernate.show_sql">true</property> <!-- Prikazuje SQL upite -->
+        <property name="hibernate.format_sql">true</property> <!-- Formatira SQL za lakše čitanje -->
+
+        <!-- Dodatne postavke -->
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+
+        
+         <mapping class="model.Kategorija"/>
+        <mapping class="model.Proizvod"/>
+
+    </session-factory>
+
+</hibernate-configuration>

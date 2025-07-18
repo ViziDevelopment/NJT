@@ -1,0 +1,5 @@
+model\Proizvod.class
+servis\Servis.class
+util\HibernateUtil.class
+model\Kategorija.class
+Njt_hibernate_1.class
