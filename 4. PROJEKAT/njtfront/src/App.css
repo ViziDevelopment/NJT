@@ -1,0 +1,62 @@
+ 
+/* Global CSS — boje, tipografija, util klase, reset */
+:root{
+  /* Nova paleta, toplija i "food" friendly */
+  --bg:#f6f7fb;           /* pozadinska */
+  --surface:#ffffff;      /* kartice/nav */
+  --text:#0f172a;         /* primarni tekst (tamni) */
+  --muted:#64748b;        /* sekundarni tekst */
+  --primary:#ff4d4f;      /* tomato crvena – CTA */
+  --secondary:#ffb020;    /* saffron narandžasta – akcenti */
+  --accent:#10b981;       /* zelena – statusi/bedževi */
+  --stroke:#e5e7eb;       /* ivice */
+  --radius:18px;
+  --shadow:0 10px 30px rgba(2,8,23,.08);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;letter-spacing:.2px;background:var(--bg);color:var(--text)}
+img{max-width:100%;display:block}
+.container{width:min(1120px,92%);margin-inline:auto}
+
+/* Global UI atoms */
+.btn{border:1px solid var(--stroke);background:#fff;color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:700}
+.btn.ghost{background:transparent}
+.btn.tiny{padding:8px 10px;border-radius:10px}
+.btn.block{width:100%}
+
+.link{color:var(--muted);text-decoration:none}
+.link:hover{color:var(--text)}
+
+.chip{border:1px solid var(--stroke);background:#fff;color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer}
+.chip.active{background:var(--text);color:#fff}
+
+.pill{display:inline-block;background:#fff;border:1px solid var(--stroke);color:var(--text);padding:6px 10px;border-radius:999px;font-size:.9rem;box-shadow:var(--shadow)}
+
+.section{padding:56px 0}
+.section.alt{background:#fff}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+.section h2{margin:0;font-size:clamp(1.4rem,2.6vw,2rem)}
+
+/* Footer */
+.footer{border-top:1px solid var(--stroke);padding:28px 0;background:#fff}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.foot-links{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--text)}
+
+/* Helpers */
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand .dot{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));box-shadow:var(--shadow)}
+
+/* Responsive utilities */
+@media (max-width: 980px){
+  .section{padding:42px 0}
+}
+@media (max-width: 620px){
+  .section{padding:32px 0}
+}
+
+
