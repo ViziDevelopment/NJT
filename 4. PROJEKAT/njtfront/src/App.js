@@ -4,6 +4,7 @@ import Pocetna from './pages/Pocetna';
 import { Footer } from './components/Footer';
 import { Proizvodi } from './pages/Proizvodi';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Restorani from './pages/Restorani';
 function App() {
   //////////
   ///
@@ -15,6 +16,8 @@ function App() {
         <Routes>
             <Route path="/" element={<Pocetna />} />
              <Route path="/proizvodi" element={<Proizvodi />} />
+             <Route path="/restorani" element={<Restorani />} />
+
           </Routes>
           
            <Footer></Footer>
