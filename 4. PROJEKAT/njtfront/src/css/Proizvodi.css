@@ -1,0 +1,84 @@
+/* Omotač (opciono koristi već postojeći .admin-wrap/.admin-head iz tvog CSS-a) */
+.products-wrap { padding: 32px 0; }
+
+/* Kartica oko grida (isti vizuelni jezik kao .table-wrap/.panel) */
+.dg-card {
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden; /* da se border-radius prenese i na header */
+}
+
+/* Osnovni okvir DataGrid-a */
+.MuiDataGrid-root {
+  border: 0 !important; /* koristimo naš border na .dg-card */
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Header */
+.MuiDataGrid-columnHeaders {
+  background: #fafafa;
+  border-bottom: 1px solid var(--stroke) !important;
+}
+.MuiDataGrid-columnHeader {
+  font-weight: 700;
+}
+
+/* Ćelije i redovi */
+.MuiDataGrid-cell {
+  border-bottom: 1px solid var(--stroke) !important;
+}
+.MuiDataGrid-row:hover {
+  background: #fcfcfd;
+}
+
+/* Toolbar (quick filter input + dugmad) */
+.MuiDataGrid-toolbarContainer {
+  padding: 8px 8px 0 8px;
+  gap: 8px;
+  border-bottom: 1px solid var(--stroke);
+  background: #fff;
+}
+
+.MuiDataGrid-toolbarContainer .MuiInputBase-root {
+  /* stil približan .input */
+  padding: 0 8px;
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.MuiDataGrid-toolbarContainer .MuiInputBase-input {
+  padding: 10px 6px;
+}
+
+/* Paginacija */
+.MuiDataGrid-footerContainer {
+  border-top: 1px solid var(--stroke);
+  background: #fff;
+}
+
+/* Dugmad u Actions koloni – dodatno zgužvano da stane lepo */
+.MuiDataGrid-root .MuiButton-root {
+  text-transform: none;
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+/* Dijalog (nije obavezno, samo malo „u tvom stilu“) */
+.MuiDialog-paper {
+  border-radius: 16px !important;
+  box-shadow: var(--shadow);
+}
+
+/* Responsivnost: na uskim ekranima smanji font i padding */
+@media (max-width: 720px) {
+  .MuiDataGrid-root {
+    font-size: 13px;
+  }
+  .MuiDataGrid-toolbarContainer .MuiInputBase-input {
+    padding: 8px 6px;
+  }
+}
