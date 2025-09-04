@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react'
 import http from '../api/http';
 import '../css/Restorani.css';
 import RedTabeleRestoran from '../components/RedTabeleRestoran';
+import useRestaurants from '../hooks/useRestaurants';
 const Restorani = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+     
+  const { restaurants, rLoading, rError, reload } = useRestaurants();
+ 
+
+  const [data, setData] = useState([]);
+
     const [q, setQ] = useState("");
     const [sort, setSort] = useState({ by: "id", dir: "asc" });
 
@@ -22,20 +26,11 @@ const Restorani = () => {
         setSort((s) =>
         s.by === col ? { by: col, dir: s.dir === "asc" ? "desc" : "asc" } : { by: col, dir: "asc" }
         );
-    }
-
-
-
+    } 
 
     useEffect(() => {
-        setLoading(true);
-
-        http
-        .get("/restaurant")  
-        .then((res) => setData(Array.isArray(res.data) ? res.data : []))
-        .catch((e) => setError(e?.response?.data?.message || e.message))
-        .finally(() => setLoading(false));
-    }, []);
+      setData(Array.isArray(restaurants) ? restaurants : []);
+    }, [restaurants]);
 
  
 
@@ -68,7 +63,7 @@ const Restorani = () => {
     try {
       await http.delete(`/restaurant/${id}`);
       setData((prev) => prev.filter((r) => r.id !== id));
-      //
+      reload();
     } catch (e) {
       alert(e?.response?.data?.message || e.message);
     }
@@ -88,6 +83,7 @@ async function handleSubmit(e) {
         address: novaAdresa.trim(),
       });
       setData((prev) => [...prev, res.data]);
+        reload();
     } else {
       // UPDATE (PUT)
       const res = await http.put(`/restaurant/${editingId}`, {
@@ -96,6 +92,7 @@ async function handleSubmit(e) {
         address: novaAdresa.trim(),
       });
       setData((prev) => prev.map((r) => (r.id === editingId ? res.data : r)));
+        reload();
     }
 
     // reset forme

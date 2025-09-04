@@ -12,9 +12,14 @@ import {
   TextField,
   Typography,
   Link,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import "../css/Proizvodi.css";
+import useRestaurants from "../hooks/useRestaurants";
 
 export default function Proizvodi() {
   const [rows, setRows] = useState([]);
@@ -33,6 +38,13 @@ export default function Proizvodi() {
     imageUrl: "",
     restaurantId: "",
   });
+
+
+
+  //restorani
+  const { restaurants, rLoading, rError } = useRestaurants();
+
+
 
   const columns = [
     { field: "id", headerName: "ID", width: 80 },
@@ -351,13 +363,30 @@ export default function Proizvodi() {
                 onChange={(e) => setForm((f) => ({ ...f, imageUrl: e.target.value }))}
                 fullWidth
               />
-              <TextField
-                label="Restaurant ID"
-                type="number"
-                value={form.restaurantId}
-                onChange={(e) => setForm((f) => ({ ...f, restaurantId: e.target.value }))}
-                fullWidth
-              />
+              <FormControl fullWidth>
+                <InputLabel id="restaurant-select-label">Restaurant</InputLabel>
+                <Select
+                  labelId="restaurant-select-label"
+                  label="Restaurant"
+                  value={form.restaurantId}
+                  onChange={(e) => setForm((f) => ({ ...f, restaurantId: e.target.value }))}
+                  disabled={rLoading}
+                >
+                  <MenuItem value="">
+                    <em>— no restaurant —</em>
+                  </MenuItem>
+                  {restaurants.map((r) => (
+                    <MenuItem key={r.id} value={String(r.id)}>
+                      {r.name} (#{r.id})
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+
+
+
+
+
             </Stack>
           </DialogContent>
           <DialogActions>
