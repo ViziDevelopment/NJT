@@ -1,0 +1,61 @@
+import React from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import "../css/navbar.css";  
+
+function isAuthed() {
+  return !!localStorage.getItem("token");
+}
+function getMe() {
+  try { return JSON.parse(localStorage.getItem("me") || "null"); } catch { return null; }
+}
+
+export default function Navbar() {
+  const nav = useNavigate();
+  const authed = isAuthed();
+  const me = getMe();
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("me");
+    nav("/login");
+  }
+
+  const active = ({ isActive }) => ({ color: isActive ? "var(--text)" : "var(--muted)", fontWeight: isActive ? 700 : 500 });
+
+  return (
+    <header className="nav">
+      <div className="container nav-inner">
+        {/* logo/brand */}
+        <Link to="/" className="brand" style={{ textDecoration: "none", color: "var(--text)", fontWeight: 900 }}>
+          Food<span style={{ color: "var(--primary)" }}>App</span>
+        </Link>
+
+        {/* links */}
+        <nav className="nav-links">
+          <NavLink to="/" style={active}>Početna</NavLink>
+          {authed && (
+            <>
+              <NavLink to="/proizvodi" style={active}>Proizvodi</NavLink>
+              <NavLink to="/restorani" style={active}>Restorani</NavLink>
+            </>
+          )}
+        </nav>
+
+        {/* actions (login/register ili user+logout) */}
+        <div className="nav-actions">
+          {!authed ? (
+            <>
+              <Link className="btn-outline" to="/login">Prijava</Link>
+              <Link className="btn-primary" to="/register">Registracija</Link>
+            </>
+          ) : (
+            <>
+              <span className="user-chip">{me?.username ?? "Korisnik"}</span>
+              <button className="btn-outline" onClick={handleLogout}>Odjava</button>
+            </>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}

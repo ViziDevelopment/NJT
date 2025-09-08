@@ -1,0 +1,80 @@
+/* helper ako ga već nemaš */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+.nav{
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.9);
+  border-bottom: 1px solid var(--stroke);
+  backdrop-filter: saturate(180%) blur(8px);
+}
+.nav-inner{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0;
+}
+
+/* Brand */
+.brand{
+  text-decoration: none; color: var(--text);
+  font-weight: 900; letter-spacing: .2px;
+  font-size: 1.15rem;
+}
+.brand-accent{ color: var(--primary); }
+
+/* Links */
+.nav-links{ display: flex; gap: 18px; }
+.nav-link{
+  text-decoration: none;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.nav-link:hover{ color: var(--text); background: #f6f7fb; }
+.nav-link.is-active{
+  color: var(--text);
+  background: #f6f7fb;
+  box-shadow: var(--shadow);
+}
+
+/* Actions (dugmad) */
+.nav-actions{ display: flex; gap: 10px; }
+
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  line-height: 1;
+}
+.btn-primary{
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid var(--primary);
+}
+.btn-outline{
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--stroke);
+}
+.btn:active{ transform: translateY(1px); }
+
+/* User chip */
+.user-chip{
+  background: #f8fafc;
+  border: 1px solid var(--stroke);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700; color: var(--text);
+}
+
+/* Responsivnost */
+@media (max-width: 900px){
+  .nav-links { gap: 12px; }
+  .btn { padding: 9px 12px; }
+}
+@media (max-width: 640px){
+  .nav-inner { gap: 10px; }
+  .nav-links { display: none; } /* najjednostavnije – po želji dodaj burger meni */
+}
