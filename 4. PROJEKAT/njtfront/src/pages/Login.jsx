@@ -61,6 +61,7 @@ export default function Login({ onSuccess }) {
         </form>
 
         <div className="auth-footer">
+           <a href="/forgot">Zaboravljena lozinka?</a>
           <span className="muted">Don’t have an account?</span>
           <a href="/register">Create one</a>
         </div>

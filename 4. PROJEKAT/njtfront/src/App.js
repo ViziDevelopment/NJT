@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 function App() {
   //////////
   ///
@@ -26,6 +28,9 @@ function App() {
 
             <Route path="/login" element={<Login onSuccess={() => window.location.href='/'} />} />
             <Route path="/register" element={<Register onSuccess={() => window.location.href='/' }/>} />
+
+              <Route path="/forgot" element={<ForgotPassword />} />
+              <Route path="/reset" element={<ResetPassword />} />
 
 
 

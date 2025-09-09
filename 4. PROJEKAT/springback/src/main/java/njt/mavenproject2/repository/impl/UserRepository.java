@@ -56,4 +56,10 @@ public class UserRepository implements MyAppRepository<User, Long> {
                 .setParameter("em", email).getSingleResult();
         return c > 0;
     }
+
+    public User findByEmail(String email) {
+         List<User> list = em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                .setParameter("email", email).getResultList();
+        return list.isEmpty() ? null : list.get(0); 
+    }
 }

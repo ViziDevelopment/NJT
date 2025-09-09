@@ -16,11 +16,7 @@ export default function Register({ onSuccess }) {
       // 1) registracija
       await http.post("/auth/register", form);
       setOk("✅ Nalog je kreiran. Proverite email i kliknite na link za aktivaciju.");
-      
-
-
-
-
+       
 
       // const loginRes = await http.post("/auth/login", {
       //   username: form.username,
