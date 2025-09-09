@@ -25,6 +25,11 @@ public class User implements MyEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable=false, length=20)
     private Role role = Role.USER;
+    
+    @Column(nullable=false)
+    private boolean enabled = false;
+    
+    
 
     public User() {}
     public User(Long id){ this.id=id; }
@@ -39,4 +44,15 @@ public class User implements MyEntity {
     public void setPasswordHash(String passwordHash){ this.passwordHash = passwordHash; }
     public Role getRole(){ return role; }
     public void setRole(Role role){ this.role = role; }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    
+    
+    
 }

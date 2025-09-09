@@ -15,16 +15,21 @@ export default function Register({ onSuccess }) {
     try {
       // 1) registracija
       await http.post("/auth/register", form);
+      setOk("✅ Nalog je kreiran. Proverite email i kliknite na link za aktivaciju.");
+      
 
-      // 2) auto login (opciono, ali zgodno)
-      const loginRes = await http.post("/auth/login", {
-        username: form.username,
-        password: form.password,
-      });
-      localStorage.setItem("token", loginRes.data.token);
-      localStorage.setItem("me", JSON.stringify(loginRes.data.user));
-      setOk("Account created! Redirecting…");
-      if (typeof onSuccess === "function") onSuccess(loginRes.data.user);
+
+
+
+
+      // const loginRes = await http.post("/auth/login", {
+      //   username: form.username,
+      //   password: form.password,
+      // });
+      // localStorage.setItem("token", loginRes.data.token);
+      // localStorage.setItem("me", JSON.stringify(loginRes.data.user));
+   
+      if (typeof onSuccess === "function") onSuccess();
     } catch (e) {
       setErr(e?.response?.data?.message || "Registration failed");
     } finally {

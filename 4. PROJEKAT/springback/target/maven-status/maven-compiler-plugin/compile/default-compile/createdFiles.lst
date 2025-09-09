@@ -17,8 +17,10 @@ njt\mavenproject2\dto\Dto.class
 njt\mavenproject2\controller\ProductController.class
 njt\mavenproject2\repository\impl\RestaurantRepository.class
 njt\mavenproject2\dto\impl\RestaurantDto.class
+njt\mavenproject2\repository\impl\VerificationTokenRepository.class
 njt\mavenproject2\config\SecurityConfig.class
 njt\mavenproject2\dto\impl\LoginRequest.class
+njt\mavenproject2\entity\impl\VerificationToken.class
 njt\mavenproject2\servis\AuthService.class
 njt\mavenproject2\FoodDeliveryApplication.class
 njt\mavenproject2\security\JwtService.class
@@ -26,6 +28,7 @@ njt\mavenproject2\entity\impl\Product.class
 njt\mavenproject2\repository\MyAppRepository.class
 njt\mavenproject2\dto\impl\UserDto.class
 njt\mavenproject2\mapper\DtoEntityMapper.class
+njt\mavenproject2\servis\MailService.class
 njt\mavenproject2\repository\impl\UserRepository.class
 njt\mavenproject2\servis\ProductServis.class
 njt\mavenproject2\entity\impl\User.class

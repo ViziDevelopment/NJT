@@ -24,6 +24,10 @@ public class AppUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 u.getUsername(),
                 u.getPasswordHash(),
+                u.isEnabled(),
+                true, // accountNonExpired
+                true,// credentialsNonExpired
+                true,// accountNonLocked
                 List.of(new SimpleGrantedAuthority("ROLE_" + u.getRole().name()))
         );
     }
