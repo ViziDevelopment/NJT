@@ -1,0 +1,326 @@
+/* Restorani */
+.rest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.rest-card {
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.rest-card:hover {
+  transform: scale(1.02);
+}
+.rest-card .thumb img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.rest-card .content {
+  padding: 12px;
+}
+
+/* Proizvodi */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.dish {
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.dish img {
+  width: 100%;
+  border-radius: 12px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.price {
+  background: var(--text);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.btn-add {
+  margin-top: 8px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Korpa */
+.cart-wrap {
+  padding: 24px;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.cart-wrap ul {
+  list-style: none;
+  padding: 0;
+}
+.cart-wrap li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--stroke);
+}
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.btn-order {
+  margin-top: 12px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-cart {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+/* Restorani */
+.rest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+  justify-content: center;   /* centrira grid */
+  max-width: 1200px;         /* širina kontejnera */
+  margin: 0 auto;            /* centriraj kontejner */
+}
+
+.rest-card {
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;        /* centriraj sadržaj */
+}
+.rest-card:hover {
+  transform: scale(1.02);
+}
+.rest-card .thumb img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.rest-card .content {
+  padding: 16px;
+}
+.rest-card h3 {
+  margin: 8px 0 4px;
+  font-size: 1.1rem;
+}
+.rest-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 12px;
+}
+
+.qty-controls input {
+  width: 50px;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
+}
+
+.qty-controls button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.qty-controls button:hover {
+  background: #2563eb;
+}
+/* Proizvodi */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+  justify-content: center;   /* centrira grid */
+  max-width: 1200px;         /* širina kontejnera */
+  margin: 0 auto;            /* centriraj kontejner */
+}
+
+.dish {
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  text-align: center;        /* centriraj sadržaj */
+  transition: transform 0.2s;
+}
+.dish:hover {
+  transform: scale(1.02);
+}
+.dish img {
+  width: 100%;
+  border-radius: 12px;
+  height: 160px;
+  object-fit: cover;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+.price {
+  background: var(--text);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.btn-add {
+  margin-top: 8px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-add:hover {
+  background: #2563eb;
+}
+/* Korpa */
+.cart-wrap {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.cart-wrap h2 {
+  margin-bottom: 20px;
+}
+
+.cart-wrap ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-wrap li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--stroke);
+  font-size: 1rem;
+}
+
+.cart-wrap li:last-child {
+  border-bottom: none;
+}
+
+/* Kontrole za količinu */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-controls button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.qty-controls input {
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+}
+
+/* Dugmad */
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: background 0.2s;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+.btn-order {
+  margin-top: 20px;
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-order:hover {
+  background: #e53e3e;
+}

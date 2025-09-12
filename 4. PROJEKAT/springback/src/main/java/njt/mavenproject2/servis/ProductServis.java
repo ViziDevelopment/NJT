@@ -52,7 +52,13 @@ public class ProductServis {
         return productMapper.toDto(updated);
     }
     
-    
+    public List<ProductDto> findByRestaurant(Long restaurantId) {
+    return productRepository.findByRestaurant(restaurantId)
+            .stream()
+            .map(productMapper::toDto)
+            .collect(Collectors.toList());
+    }
+
     
     
     

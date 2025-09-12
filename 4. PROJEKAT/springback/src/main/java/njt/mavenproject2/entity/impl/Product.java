@@ -26,7 +26,9 @@ public class Product implements  MyEntity{
 
     public Product() {
     }
-
+    public Product(Long id) {
+        this.id = id;
+    }
     public Product(Long id, String name, String description, Double price, String imageUrl, Restaurant restaurant) {
         this.id = id;
         this.name = name;

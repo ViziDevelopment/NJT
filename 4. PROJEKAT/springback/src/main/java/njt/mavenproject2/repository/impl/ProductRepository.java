@@ -56,6 +56,16 @@ public class ProductRepository implements MyAppRepository<Product, Long>{
     }
     
     
+ 
+ 
     
+
+    public List<Product> findByRestaurant(Long restaurantId) {
+        return entityManager.createQuery("SELECT p FROM Product p WHERE p.restaurant.id = :rid", Product.class)
+                 .setParameter("rid", restaurantId)
+                 .getResultList();
+    }
+ 
+
     
 }

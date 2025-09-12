@@ -40,12 +40,19 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                // auth endpoints
+                // auth endpoints (register, login, verify, reset password...)
                 .requestMatchers("/api/auth/**").permitAll()
+
                 // swagger
                 .requestMatchers("/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html").permitAll()
-                // javni GET primer
+
+                // javno dostupni GET-ovi (restorani i proizvodi)
                 .requestMatchers(HttpMethod.GET, "/api/restaurant/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/product/**").permitAll()
+
+                // narudžbine – samo ulogovani korisnici
+                .requestMatchers("/api/order/**").authenticated()
+
                 // sve ostalo traži JWT
                 .anyRequest().authenticated()
             )

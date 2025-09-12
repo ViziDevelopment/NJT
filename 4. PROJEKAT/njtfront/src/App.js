@@ -11,11 +11,39 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import RestaurantsPage from './pages/RestaurantsPage';
+import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
+import { useState } from 'react';
 function App() {
-  //////////
-  ///
 
-  ///
+/*
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch {
+      return [];
+    }
+  });
+
+  // svaki put kad se cart promeni → snimi u localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+  
+*/
+
+  const [cart, setCart] = useState([]);
+  let userId = null;
+    try {
+      const me = JSON.parse(localStorage.getItem("me"));
+      userId = me?.id || null;
+    } catch (e) {
+      console.error("Ne mogu da pročitam localStorage.me", e);
+    }
+
+
+  const addToCart = (p) => setCart([...cart, p]);
   return (
      <BrowserRouter>
             <Navbar></Navbar>  
@@ -33,6 +61,18 @@ function App() {
               <Route path="/reset" element={<ResetPassword />} />
 
 
+
+
+              <Route path="/restaurants" element={<RestaurantsPage />} />
+                <Route
+                  path="/products/:id"
+                  element={<ProductsPage addToCart={addToCart} />}
+                />
+                <Route
+                  path="/cart"
+                  element={<CartPage cart={cart} setCart={setCart} userId={userId} />}
+                />
+           
 
           </Routes>
           

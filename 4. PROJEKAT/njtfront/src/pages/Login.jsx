@@ -3,7 +3,7 @@ import http from "../api/http";
 import "../css/auth.css";
 
 export default function Login({ onSuccess }) {
-  const [form, setForm] = useState({ username: "", password: "" });
+  const [form, setForm] = useState({ username: "novi2", password: "test123" });
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 

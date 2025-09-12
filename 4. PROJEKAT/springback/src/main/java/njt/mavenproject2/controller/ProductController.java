@@ -85,4 +85,12 @@ public class ProductController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error while updating restaurant: " + ex.getMessage());
         }
     }
+    
+    @GetMapping("/restaurant/{restaurantId}")
+    @Operation(summary = "Retrieve all products for a given restaurant.")
+    public ResponseEntity<List<ProductDto>> getByRestaurant(@PathVariable Long restaurantId) {
+        List<ProductDto> products = productService.findByRestaurant(restaurantId);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
 }

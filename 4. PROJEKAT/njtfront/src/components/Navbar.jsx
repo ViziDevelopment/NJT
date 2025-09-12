@@ -20,7 +20,10 @@ export default function Navbar() {
     nav("/login");
   }
 
-  const active = ({ isActive }) => ({ color: isActive ? "var(--text)" : "var(--muted)", fontWeight: isActive ? 700 : 500 });
+  const active = ({ isActive }) => ({
+    color: isActive ? "var(--text)" : "var(--muted)",
+    fontWeight: isActive ? 700 : 500
+  });
 
   return (
     <header className="nav">
@@ -33,10 +36,18 @@ export default function Navbar() {
         {/* links */}
         <nav className="nav-links">
           <NavLink to="/" style={active}>Početna</NavLink>
-          {authed && (
+
+          {authed && me?.role === "ADMIN" && (
             <>
               <NavLink to="/proizvodi" style={active}>Proizvodi</NavLink>
               <NavLink to="/restorani" style={active}>Restorani</NavLink>
+            </>
+          )}
+
+          {authed && me?.role === "USER" && (
+            <>
+              <NavLink to="/restaurants" style={active}>Restorani</NavLink>
+              <NavLink to="/cart" style={active}>Korpa</NavLink>
             </>
           )}
         </nav>
