@@ -29,9 +29,7 @@ export default function Navbar() {
     <header className="nav">
       <div className="container nav-inner">
         {/* logo/brand */}
-        <Link to="/" className="brand" style={{ textDecoration: "none", color: "var(--text)", fontWeight: 900 }}>
-          Food<span style={{ color: "var(--primary)" }}>App</span>
-        </Link>
+        <div className="brand"><div className="dot" /><span>SwiftBite</span></div>
 
         {/* links */}
         <nav className="nav-links">
@@ -41,6 +39,7 @@ export default function Navbar() {
             <>
               <NavLink to="/proizvodi" style={active}>Proizvodi</NavLink>
               <NavLink to="/restorani" style={active}>Restorani</NavLink>
+              <NavLink to="/admin/orders" style={active}>Narudžbine</NavLink>
             </>
           )}
 

@@ -14,10 +14,11 @@ import ResetPassword from './pages/ResetPassword';
 import RestaurantsPage from './pages/RestaurantsPage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import AdminOrdersPage from './pages/AdminOrdersPage';
 function App() {
 
-/*
+
   const [cart, setCart] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,9 +32,9 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
   
-*/
 
-  const [cart, setCart] = useState([]);
+
+ // const [cart, setCart] = useState([]);
   let userId = null;
     try {
       const me = JSON.parse(localStorage.getItem("me"));
@@ -60,12 +61,12 @@ function App() {
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/reset" element={<ResetPassword />} />
 
-
+              <Route path="/admin/orders" element={<ProtectedRoute><AdminOrdersPage/></ProtectedRoute>} />
 
 
               <Route path="/restaurants" element={<RestaurantsPage />} />
                 <Route
-                  path="/products/:id"
+                  path="/products/:id"   //{id}
                   element={<ProductsPage addToCart={addToCart} />}
                 />
                 <Route
